@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator BMI</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+</head>
+<body>
+    <!-- Kontainer utama -->
+    <div class="container">
+        <div class="baris">
+            <!-- Bagian penjelasan BMI dan Form BMI -->
+            <h1>Kalkulator <br> Body Mass Index (BMI)</h1>
+            <div class="kolom">
+                <p>Berat badan ideal adalah impian semua orang. Tidak hanya memiliki bentuk tubuh yang menunjang penampilan, berat badan ideal juga menandakan kondisi tubuh yang sehat. Bagaimana denganmu? Yuk, hitung sekarang di kalkulator BMI.</p>
+                <div class="baris m-0">
+                    <div class="kolom2 kotak">
+                        <!-- Formulir input data BMI -->
+                        <form id="frmbmi" name="frmbmi" class="form" autocomplete="off">
+                            <div class="form-group">
+                                <label class="control-label kolom">Jenis Kelamin</label>
+                                <div class="inputGroupContainer">
+                                    <input type="radio" id="pria" name="gender" value="pria" required="required">
+                                    <label for="pria">Pria</label>
+                                    <input type="radio" id="wanita" name="gender" value="wanita" required="required">
+                                    <label for="wanita">Wanita</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label kolom">Berat Badan (kg)</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <input name="bmiWeight" id="bmiWeight" class="form-control" type="text" required="required" onkeypress="return OnlyNumbers(event);">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label kolom">Usia (tahun)</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <input name="bmiAge" id="bmiAge" class="form-control" type="text" required="required" onkeypress="return OnlyNumbers(event);" placeholder="Minimal 18 tahun">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label kolom">Tinggi Badan (cm)</label>
+                                <div class="inputGroupContainer">
+                                    <div class="input-group">
+                                        <input name="bmiHeight" id="bmiHeight" class="form-control" type="text" required="required" onkeypress="return OnlyNumbers(event);">
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- Button -->
+                            <div class="form-group">
+                                <label class="control-label kolom"></label>
+                                <div class="mb-10">
+                                    <button type="button" class="btn btn-info mb-10" onclick="hitungbmi();">Hitung BMI</button>
+                                    <button type="button" class="btn btn-default mb-10" onclick="clearbmi();">Reset</button>
+                                </div>
+                            </div>
+                        </form>
+
+                        </div>
+                    </div>
+                </div>
+
+            <div class="kolom">
+                <div class="baris">
+                    <div class="kolom2">
+                        <h4>Keunggulan fitur</h4>
+                        <ol>
+                            <li>
+                                Menghitung berat badan
+                            </li>
+                            <li>
+                                Menentukan kategori berat badan ideal atau tidak
+                            </li>
+                            <li>
+                                Mempersiapkan program penurunan berat badan
+                            </li>
+                        </ol>
+
+                        <p>Kalkulator ini hanya boleh digunakan oleh orang dewasa (wanita hamil atau menyusui tidak boleh mengandalkan pembacaan BMI ini) dan tidak ada tindakan yang harus diambil berdasarkan nilainya selain berkonsultasi dengan orang yang memenuhi syarat seperti dokter.</p>
+                <br>
+                <p id="hasil">Kalkulator akan memberi Anda gambaran tentang perbandingan berat badan Anda dengan nilai umum. Indeks Massa Tubuh (atau BMI) dihitung sebagai berat badan Anda (dalam kilogram) dibagi dengan kuadrat tinggi badan Anda (dalam meter) atau BMI = Kg/M<sup>2</sup>.</p>
+                    </div>
+                </div>
+                <br>
+            </div>
+        </div>
+        <br>
+
+        <div class="baris">
+        <!-- Bagian konten hasil perhitungan BMI beserta penjelasannya -->
+        <div class="kolom3" id="contenthasil" style="display:none;">
+            <h3>Hasil</h3>
+                <div class="kolom mb-10">
+                    <div class="m-0 kotak centertext">
+                        <h4 id="hasilKualitas"></h4>
+                        <h2 id="hasilBMI"></h2>
+                        <p id="hasilKet"></p>
+                    </div>
+                </div>
+                <div class="kolom">
+                    <p id="kualitasBMI">
+                    </p>
+                    <p id="saranBMI"></p>
+                    <p>BMI tidak sepenuhnya mewakili diagnosis menyeluruh dari kesehatan tubuh dan resiko penyakit seseorang. Anda perlu konsultasi lebih lanjut mengenai resiko dan kekhawatiran Anda terkait dengan berat badan Anda.</p>
+                </div>
+        </div>
+        </div>
+
+        <div class="baris">
+            <div class="kolom mb-10">
+                <!-- Bagian untuk menampilkan konten kategori overweight -->
+                <div class="m-0 kotak centertext" id="contentoverweight" style="display:none;">
+                    <h4>Beberapa penyakit yang berasal dari kegemukan</h4>
+                    <ul>
+                        <li>
+                            Diabetes
+                        </li>
+                        <li>
+                            Hipertensi
+                        </li>
+                        <li>
+                            Sakit Jantung
+                        </li>
+                        <li>
+                            Osteoarthritis
+                        </li>
+                    </ul>
+                    <div class="kolom2 mt-20">
+                    </div>
+                </div>
+                <!-- Bagian untuk menampilkan konten kategori underweight -->
+                <div class="baris m-0 kotak centertext" id="contentunderweight" style="display:none;">
+                    <h4>Berat rendah dapat menyebabkan berbagai masalah penyakit</h4>
+                    <ul>
+                        <li>
+                            Infertilitas
+                        </li>
+                        <li>
+                            Anemia
+                        </li>
+                        <li>
+                            Osteoporosis
+                        </li>
+                        <li>
+                            Sistem Imun Lemah
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <script src="js/script.js"></script>
+        
+    </div>
+</body>
+</html>
