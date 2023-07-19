@@ -1,0 +1,228 @@
+body {
+    background: linear-gradient(180deg, rgba(26,81,64,1) 0%, rgba(24,90,157,1) 100%);
+    color: white;
+    background-attachment: fixed;
+}
+.container {
+    
+    justify-content: center;
+    height: 100vh;
+    font-family: "Montserrat", sans-serif;
+    align-items: center;
+    padding: 5rem;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+h1 {
+    font-family: "Montserrat", sans-serif;
+    font-size: 50px;
+    font-weight: 900;
+    margin-bottom: 0px;
+    padding-left: 15px;
+}
+
+.centertext {
+    text-align: center;
+}
+
+.centertext p {
+    text-align: center;
+}
+
+h2 {
+    font-size: 50px;
+    margin: 5px;
+}
+
+h3 {
+    padding-left: 15px;
+    font-size: 25px;
+}
+
+h4 {
+    margin-top: 15px;
+}
+
+p {
+    font-size: 15px;
+    font-family: "Montserrat", sans-serif;
+    color: white;
+    text-align: justify;
+    line-height: 2;
+}
+
+.baris {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.kotak {
+    background: rgba(28, 78, 100, 0.2);
+    border-radius: 10px;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 50px;
+    margin-bottom: 20px;
+}
+
+.m-0 {
+    margin: 0px !important;
+}
+
+.kolom {
+    width: 50%;
+    float: left;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.kolom2 {
+    width: 100%;
+}
+
+.kolom3 {
+    width: 100%;
+    float: left;
+    position: relative;
+}
+
+.kolom2 .kolom {
+    position: relative;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+.mb-10 {
+    margin-bottom: 10px;
+}
+
+form {
+    display: block;
+    margin-top: 0em;
+}
+.form-control {
+    width: 50%;
+    border-radius: 5px;
+    background-color: transparent;
+    color: white;
+    border: 1px solid;
+    padding: 6px 12px;
+    margin-bottom: 8px;
+}
+
+::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.btn {
+    display: inline-block;
+    padding: 6px 12px;
+    margin-bottom: 0;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 1.42857143;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    font-weight: bold;
+}
+
+.btn-info {
+    color: #fff;
+    background-color: #185a9d;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+
+#hasilKet {
+    font-size: 15px;
+}
+
+#kualitasBMI {
+    margin-top: 0px;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0px;
+}
+
+/* Mobile View */
+@media (max-width: 768px) {
+    .container {
+        padding: 1rem;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    h2 {
+        font-size: 30px;
+    }
+
+    h3 {
+        font-size: 20px;
+    }
+
+    p {
+        font-size: 14px;
+    }
+
+    .kolom {
+        width: 100%;
+        float: none;
+        padding: 0;
+    }
+
+    .form-control {
+        width: 100%;
+    }
+
+    .btn {
+        font-size: 12px;
+    }
+
+    .baris {
+        display: flex;
+        flex-direction: column;
+    }
+}
+
+/* Tablet View */
+@media (min-width: 769px) and (max-width: 1024px) {
+    h1 {
+        font-size: 40px;
+    }
+
+    h2 {
+        font-size: 40px;
+    }
+
+    h3 {
+        font-size: 22px;
+    }
+
+    p {
+        font-size: 16px;
+    }
+
+    .form-control {
+        width: 70%;
+    }
+}
